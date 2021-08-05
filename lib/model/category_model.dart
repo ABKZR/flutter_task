@@ -7,7 +7,6 @@ class Category {
   final int? id;
   final String name;
   final String picture;
-  
 
   factory Category.fromMap(Map<String, dynamic> json) => new Category(
         id: json['id'],

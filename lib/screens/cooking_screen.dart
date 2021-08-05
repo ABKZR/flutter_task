@@ -1,19 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_task/category_model.dart';
+import 'package:flutter_task/model/category_model.dart';
 import 'package:flutter_task/const.dart';
-import 'package:flutter_task/database_helper.dart';
+import 'package:flutter_task/model/database_helper.dart';
 
-class CookingScreen extends StatefulWidget {
-  const CookingScreen({Key? key}) : super(key: key);
+class CookingScreen extends StatelessWidget {
 
-  @override
-  _CookingScreenState createState() => _CookingScreenState();
-}
-
-class _CookingScreenState extends State<CookingScreen> {
   @override
   Widget build(BuildContext context) {
     // SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
@@ -28,7 +21,9 @@ class _CookingScreenState extends State<CookingScreen> {
               width: double.infinity,
               decoration: BoxDecoration(
                   color: Color(0xff6c60e1),
-                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20))),
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20))),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -102,13 +97,13 @@ class _CookingScreenState extends State<CookingScreen> {
                                   return Card(
                                     elevation: 1,
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10)
-                                    ),
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
                                     child: ListTile(
                                       leading: ClipRRect(
                                         borderRadius: BorderRadius.circular(15),
                                         child: Image.memory(
-                                            base64Decode(category.picture)),
+                                            base64Decode(category.picture),fit: BoxFit.cover,),
                                       ),
                                       title: Text(
                                         category.name,
